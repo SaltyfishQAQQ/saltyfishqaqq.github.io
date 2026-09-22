@@ -495,7 +495,6 @@
     <section id="places" class="section scrollspy">
       <h3 class="page-title white-text teal">Places Travelled</h3>
       <div class="container">
-        <p>Hover a pin for the city, click for photos. Scroll or use the buttons to zoom.</p>
         <div class="card">
           <div class="card-content">
             <div id="world-map-wrap">
@@ -509,7 +508,6 @@
               <div id="map-tooltip" hidden></div>
             </div>
             <div id="place-detail" hidden>
-              <h5 id="place-detail-title"></h5>
               <div id="place-detail-photos"></div>
             </div>
           </div>
@@ -807,7 +805,6 @@
 
       var detail = document.getElementById("place-detail");
       detail.hidden = false;
-      document.getElementById("place-detail-title").textContent = place.name;
 
       var photosEl = document.getElementById("place-detail-photos");
       if (place.photos.length) {
