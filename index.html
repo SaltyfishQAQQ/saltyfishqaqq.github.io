@@ -350,70 +350,9 @@
     <section id="projects" class="section scrollspy">
       <h3 class="page-title white-text teal">Projects</h3>
       <div class="container">
-        <div class="row">
-
-          <!-- Moodify -->
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Moodify music recommendation" src="/assets/img/project-music-player.png"
-                  style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Moodify<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>A mood-based music recommendation system using NLP and PyTorch.</p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> Python, PyTorch, Genius API, NLP</li>
-                  <li>Architected a recommendation model using song features, lyrical sentiment, and user mood.</li>
-                  <li>Trained an RNN sentiment analysis model with 90%+ accuracy using PyTorch.</li>
-                  <li>Achieved a 96% user satisfaction rate after coordinated deployment.</li>
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit Moodify GitHub repo" href="https://github.com/SaltyfishQAQQ"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- StudentSphere -->
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="StudentSphere GIS mapping" src="/assets/img/project-ml-1.jpg"
-                  style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">StudentSphere<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>A city-mapping GIS application in C++ with pathfinding and interactive UI.</p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> C++, STL, EZGL, Open Street Map API</li>
-                  <li>Processed 20M+ data points from the Open Street Map database.</li>
-                  <li>Implemented Dijkstra&#8217;s and A* pathfinding, achieving top 10% Traveling Salesman Problem performance.</li>
-                  <li>Maintained a consistent 30+ FPS with optimized backend display algorithms.</li>
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit StudentSphere GitHub repo" href="https://github.com/SaltyfishQAQQ"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <div id="projects-container" class="row"></div>
+        <div class="center-align">
+          <button id="load-more-btn" class="btn waves-effect waves-light">Load More</button>
         </div>
       </div>
     </section>
@@ -643,6 +582,122 @@
         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
       })
     })
+  </script>
+
+  <!-- Projects - render project cards from data and reveal more on demand -->
+  <script>
+    var projectsData = [
+      {
+        title: "Moodify",
+        description: "A mood-based music recommendation system using NLP and PyTorch.",
+        tools: "Python, PyTorch, Genius API, NLP",
+        image: "/assets/img/project-music-player.png",
+        bullets: [
+          "Architected a recommendation model using song features, lyrical sentiment, and user mood.",
+          "Built a Genius API lyrics fetcher to collect and pre-process lyrical data for 10,000+ songs.",
+          "Trained an RNN sentiment analysis model with 90%+ accuracy using PyTorch.",
+          "Achieved a 96% user satisfaction rate after coordinated deployment."
+        ],
+        links: [
+          { label: "Demo", url: "https://youtu.be/sDmYYxL-Bvc", icon: "fa fa-youtube-play" }
+        ]
+      },
+      {
+        title: "StudentSphere",
+        description: "A city-mapping GIS application in C++ with pathfinding and interactive UI.",
+        tools: "C++, STL, EZGL, Open Street Map API",
+        image: "/assets/img/project-ml-1.jpg",
+        bullets: [
+          "Processed 20M+ data points from the Open Street Map database.",
+          "Implemented Dijkstra's and A* pathfinding, achieving top 10% Traveling Salesman Problem performance.",
+          "Designed the front-end UI/UX with EZGL, earning 94% positive user feedback.",
+          "Maintained a consistent 30+ FPS with optimized backend display algorithms."
+        ],
+        links: [
+          { label: "Demo", url: "https://youtu.be/JuLLTyEIoOM", icon: "fa fa-youtube-play" }
+        ]
+      },
+      {
+        title: "Rhythm Game - TAIKUN M4STER",
+        description: "A DE1-SoC rhythm game with real-time key-timing detection and VGA/HEX displays.",
+        tools: "C, DE1-SoC, PS2 Keyboard, VGA, HEX Display",
+        icon: "mdi-image-music-note",
+        bullets: [
+          "Designed and integrated C modules for PS2 keyboard, VGA, and HEX displays on a DE1-SoC board.",
+          "Developed timing-check modules that synchronize key presses with the song's rhythm and update the player's score in real time."
+        ],
+        links: [
+          { label: "Demo", url: "https://youtu.be/g_SRKAhhgUU", icon: "fa fa-youtube-play" }
+        ]
+      },
+      {
+        title: "MetroTune_FPGA",
+        description: "An FPGA-based hardware guitar tuner that doubles as a metronome, built in RTL on the DE1-SoC.",
+        tools: "RTL, DE1-SoC, VGA",
+        icon: "mdi-image-tune",
+        bullets: [
+          "Developed a hardware guitar tuner that doubles as a metronome on the DE1-SoC board.",
+          "Implemented RTL modules for HEX display, PS2 keyboard input, and frequency-detection logic.",
+          "Designed a memory controller to write 2D graphics onto the VGA display from on-chip memory."
+        ],
+        links: [
+          { label: "GitHub", url: "https://github.com/easoncchou/metrotune_FPGA", icon: "fa fa-github" },
+          { label: "Demo", url: "https://youtu.be/0uGQk6QVRtI?si=9UNJcxsDjSeQOw0V", icon: "fa fa-youtube-play" }
+        ]
+      }
+    ];
+
+    var PROJECTS_PER_PAGE = 2;
+    var projectsShown = 0;
+
+    function projectCardHtml(project) {
+      var imageHtml = project.image
+        ? '<img alt="' + project.title + '" src="' + project.image + '" style="height:100%;width:100%" class="activator" />'
+        : '<div class="project-icon-tile activator"><i class="' + project.icon + '"></i></div>';
+
+      var linksHtml = project.links.map(function (l) {
+        return '<a aria-label="' + l.label + ' for ' + project.title + '" href="' + l.url + '" target="_blank" ' +
+          'data-position="top" data-tooltip="' + l.label + '" ' +
+          'class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="' + l.icon + '"></i></a>';
+      }).join('');
+
+      var bulletsHtml = project.bullets.map(function (b) {
+        return '<li>' + b + '</li>';
+      }).join('');
+
+      return '' +
+        '<div class="col s12 m6 l4">' +
+        '  <div class="card medium">' +
+        '    <div class="card-image waves-effect waves-block waves-light">' + imageHtml + '</div>' +
+        '    <div class="card-content">' +
+        '      <span class="card-title activator teal-text hoverline">' + project.title + '<i class="mdi-navigation-more-vert right"></i></span>' +
+        '      <p>' + project.description + '</p>' +
+        '    </div>' +
+        '    <div class="card-reveal">' +
+        '      <span class="card-title grey-text"><small>Accomplishments</small><i class="mdi-navigation-close right"></i></span>' +
+        '      <ul><li><b>Tools:</b> ' + project.tools + '</li>' + bulletsHtml + '</ul>' +
+        '      <div class="card-action">' + linksHtml + '</div>' +
+        '    </div>' +
+        '  </div>' +
+        '</div>';
+    }
+
+    function renderProjects(count) {
+      var container = document.getElementById("projects-container");
+      container.innerHTML = projectsData.slice(0, count).map(projectCardHtml).join('');
+    }
+
+    function loadMoreProjects() {
+      projectsShown = Math.min(projectsShown + PROJECTS_PER_PAGE, projectsData.length);
+      renderProjects(projectsShown);
+      if (projectsShown >= projectsData.length) {
+        document.getElementById("load-more-btn").style.display = "none";
+      }
+    }
+
+    projectsShown = Math.min(PROJECTS_PER_PAGE, projectsData.length);
+    renderProjects(projectsShown);
+    document.getElementById("load-more-btn").addEventListener("click", loadMoreProjects);
   </script>
 
   <!-- Places Travelled - switch the embedded map between visited places -->

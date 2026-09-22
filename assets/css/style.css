@@ -411,6 +411,20 @@ h3 {
   color: #fff !important;
 }
 
+.project-icon-tile {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--theme-mid), var(--theme-dark));
+}
+
+.project-icon-tile i {
+  font-size: 90px;
+  color: #fff;
+}
+
 .card .role {
   font-size: 1.25rem;
   font-weight: bold;
