@@ -1,10 +1,17 @@
+:root {
+  --theme-light: #e4ccfc;
+  --theme-mid: #855ec9;
+  --theme-dark: #623f98;
+  --theme-darker: #391a51;
+}
+
 .profile-pic {
   position: relative;
   width: 170px;
   height: 170px;
   overflow: hidden;
   object-fit: cover;
-  border: 6px solid rgba(0, 77, 64, 0.4);
+  border: 6px solid rgba(98, 63, 152, 0.4);
   border-radius: 50% !important;
 }
 
@@ -78,7 +85,7 @@
   position: relative;
   padding: 11px 35px;
   background: #fff;
-  color: #00796b;
+  color: var(--theme-dark);
   border: 2px solid #fff;
   font-weight: 600;
   font-size: 15px;
@@ -97,8 +104,8 @@
   position: relative;
   padding: 11px 35px;
   background: none;
-  color: #fff;
-  border: 2px solid #fff;
+  color: var(--theme-darker);
+  border: 2px solid var(--theme-darker);
   font-weight: 600;
   font-size: 15px;
   letter-spacing: 1px;
@@ -109,8 +116,8 @@
 }
 
 .contactme:hover{
-  color: #00796b;
-  background-color: white;
+  color: #fff;
+  background-color: var(--theme-darker);
 }
 /* main body */
 
@@ -133,7 +140,7 @@ body {
 } */
 
 a {
-  color: #004d40;
+  color: var(--theme-dark);
 }
 
 /* main blockqoute */
@@ -230,7 +237,7 @@ ul.side-nav li {
 
 ul.side-nav.fixed a {
   box-sizing: content-box;
-  color: rgb(16, 202, 56);
+  color: var(--theme-mid);
   display: block;
   line-height: 100%;
   padding: 10px 0 12px;
@@ -320,44 +327,35 @@ h3 {
 } */
 
 #intro.section {
-  background: #a7ffeb repeat;
+  background: var(--theme-light) repeat;
   position: relative;
   height: 60vh;
 }
 
 #intro.section .container {
-  color: white;
+  color: var(--theme-darker);
   font-weight: 200;
   left: 0;
   position: absolute;
   top: 0;
 }
 
-/* #intro.section .container *:not(span) {
-  font-weight: 300;
-  line-height: 150%;
-  padding: 0 30px;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-} */
-
 #intro.section .container *:not(span) {
   font-weight: 300;
-  /* font-weight: 400; */
   line-height: 150%;
-  /* padding: 0 0px; */
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 #intro.section .underline {
-  border-bottom: 5px solid #24305e;
+  border-bottom: 5px solid var(--theme-dark);
 }
 
 #intro.section .teal {
   padding: 0 10px;
+  color: #fff;
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: transparent;
   height: 100%;
   left: 0;
   position: absolute;
@@ -478,7 +476,7 @@ a.hoverline {
 } */
 
 a.hoverline:hover {
-  border-bottom: 3px solid #004d40 !important;
+  border-bottom: 3px solid var(--theme-dark) !important;
 }
 
 #skills .card.large {
@@ -554,7 +552,7 @@ small {
 /* main .teal-text */
 
 .teal-text {
-  color: #008073 !important;
+  color: var(--theme-mid) !important;
 }
 
 /* .teal-text {
@@ -564,7 +562,7 @@ small {
 /* .teal */
 
 .teal {
-  background-color: #008073 !important;
+  background-color: var(--theme-dark) !important;
 }
 
 /* .teal {
@@ -607,7 +605,7 @@ small {
     position: absolute;
   }
   nav a.button-collapse, nav a.button-collapse i {
-    color: #009688;
+    color: var(--theme-mid);
     height: 56px;
     line-height: 56px;
   }
