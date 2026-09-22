@@ -50,6 +50,8 @@
   margin: 4px;
 }
 
+.phone,
+.email,
 .github,
 .linkedin,
 .angellist,
@@ -62,6 +64,8 @@
   color: #FFFFFF;
 }
 
+.phone:hover,
+.email:hover,
 .github:hover,
 .linkedin:hover,
 .angellist:hover,
@@ -321,7 +325,7 @@ h3 {
 #intro.section {
   background: var(--theme-light) repeat;
   position: relative;
-  height: 60vh;
+  height: 44vh;
 }
 
 #intro.section .container {
