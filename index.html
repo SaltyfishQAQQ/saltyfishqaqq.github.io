@@ -98,7 +98,12 @@
       </li>
 
       <li class="bold">
-        <!-- 
+        <a aria-label="Navigate to the Places Travelled section" href="#places" class="waves-effect waves-dark teal-text"><i
+            class="mdi-maps-place small"></i><span>Places Travelled</span></a>
+      </li>
+
+      <li class="bold">
+        <!--
         1. mdi-communication-contacts
         2. mdi-content-mail
         3. mdi-communication-email
@@ -158,6 +163,10 @@
       <li class="bold">
         <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
             class="mdi-social-school small"></i><span>Education</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Places Travelled section" href="#places" class="waves-effect waves-dark teal-text"><i
+            class="mdi-maps-place small"></i><span>Places Travelled</span></a>
       </li>
       <li class="bold">
         <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
@@ -538,6 +547,39 @@
       </div>
     </section>
 
+    <!-- Places Travelled Section -->
+    <section id="places" class="section scrollspy">
+      <h3 class="page-title white-text teal">Places Travelled</h3>
+      <div class="container">
+        <p>Places I've visited across Canada, the US, and abroad.</p>
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title" id="places-map-title">Toronto, Canada</span>
+            <div class="map-responsive">
+              <iframe id="places-map"
+                src="https://maps.google.com/maps?q=Toronto,Ontario,Canada&t=&z=11&ie=UTF8&iwloc=&output=embed"
+                width="100%" height="400" style="border:0;" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" title="Places Travelled Map"></iframe>
+            </div>
+            <div class="chip-list">
+              <a href="#" class="place-chip active" data-place="Toronto, Canada" data-query="Toronto,Ontario,Canada">Toronto, Canada</a>
+              <a href="#" class="place-chip" data-place="Quebec City, Canada" data-query="Quebec+City,Quebec,Canada">Quebec City, Canada</a>
+              <a href="#" class="place-chip" data-place="Banff, Canada" data-query="Banff,Alberta,Canada">Banff, Canada</a>
+              <a href="#" class="place-chip" data-place="Montreal, Canada" data-query="Montreal,Quebec,Canada">Montreal, Canada</a>
+              <a href="#" class="place-chip" data-place="Vancouver, Canada" data-query="Vancouver,British+Columbia,Canada">Vancouver, Canada</a>
+              <a href="#" class="place-chip" data-place="Los Angeles, USA" data-query="Los+Angeles,California,USA">Los Angeles, USA</a>
+              <a href="#" class="place-chip" data-place="New York, USA" data-query="New+York,New+York,USA">New York, USA</a>
+              <a href="#" class="place-chip" data-place="Hanoi, Vietnam" data-query="Hanoi,Vietnam">Hanoi, Vietnam</a>
+              <a href="#" class="place-chip" data-place="Bali, Indonesia" data-query="Bali,Indonesia">Bali, Indonesia</a>
+              <a href="#" class="place-chip" data-place="Reykjavik, Iceland" data-query="Reykjavik,Iceland">Reykjavik, Iceland</a>
+              <a href="#" class="place-chip" data-place="Tokyo, Japan" data-query="Tokyo,Japan">Tokyo, Japan</a>
+              <a href="#" class="place-chip" data-place="Xiamen, China" data-query="Xiamen,China">Xiamen, China</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Eight Section: Contact -->
     <section id="contact" class="section scrollspy full-height">
       <h3 class="page-title white-text teal">Contact</h3>
@@ -601,6 +643,22 @@
         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
       })
     })
+  </script>
+
+  <!-- Places Travelled - switch the embedded map between visited places -->
+  <script>
+    document.querySelectorAll(".place-chip").forEach(function (chip) {
+      chip.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelectorAll(".place-chip").forEach(function (c) {
+          c.classList.remove("active");
+        });
+        chip.classList.add("active");
+        document.getElementById("places-map").src =
+          "https://maps.google.com/maps?q=" + chip.dataset.query + "&t=&z=11&ie=UTF8&iwloc=&output=embed";
+        document.getElementById("places-map-title").textContent = chip.dataset.place;
+      });
+    });
   </script>
 </body>
 

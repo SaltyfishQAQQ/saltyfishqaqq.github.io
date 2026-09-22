@@ -373,6 +373,44 @@ h3 {
   margin-bottom: 60px;
 }
 
+.map-responsive {
+  overflow: hidden;
+  border-radius: 4px;
+  margin-top: 15px;
+}
+
+.map-responsive iframe {
+  display: block;
+}
+
+.chip-list {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.place-chip {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 2px solid var(--theme-mid);
+  color: var(--theme-mid) !important;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s all;
+}
+
+.place-chip:hover {
+  background-color: var(--theme-light);
+}
+
+.place-chip.active {
+  background-color: var(--theme-dark);
+  border-color: var(--theme-dark);
+  color: #fff !important;
+}
+
 .card .role {
   font-size: 1.25rem;
   font-weight: bold;
